@@ -15,5 +15,6 @@ execute unless data storage mce:cmd Command run data modify storage mce:error La
 execute unless data storage mce:cmd Command run data modify storage mce:error Code set value "ERR_NO_CMD"
 execute unless data storage mce:cmd Command run function mce:core/error/raise
 
-execute if data storage mce:cmd Command run data modify storage mce:queue commands append from storage mce:cmd Command
-execute if data storage mce:cmd Command run data remove storage mce:cmd Command
+execute if data storage mce:cmd Command run function mce:core/security/check_queue_capacity
+execute if data storage mce:cmd Command if data storage mce:security {state:{allowed:1b}} run data modify storage mce:queue commands append from storage mce:cmd Command
+execute if data storage mce:cmd Command if data storage mce:security {state:{allowed:1b}} run data remove storage mce:cmd Command

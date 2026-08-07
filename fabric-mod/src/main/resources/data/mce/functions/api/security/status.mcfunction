@@ -1,0 +1,9 @@
+# PUBLIC API — mce:api/security/status
+# Prints MCE security settings and the last blocked event.
+
+tellraw @s ["",{"text":"=== MCE Security ===","color":"gold"}]
+tellraw @s ["",{"text":" enabled: ","color":"white"},{"storage":"mce:config","nbt":"mce.security.enabled","color":"aqua"},{"text":"  strict: ","color":"white"},{"storage":"mce:config","nbt":"mce.security.strict","color":"aqua"},{"text":"  denylist: ","color":"white"},{"storage":"mce:config","nbt":"mce.security.denylist","color":"aqua"}]
+tellraw @s ["",{"text":" limits: queue=","color":"white"},{"storage":"mce:config","nbt":"mce.security.max_queue_size","color":"yellow"},{"text":" batch=","color":"white"},{"storage":"mce:config","nbt":"mce.security.max_batch_size","color":"yellow"},{"text":" schedule=","color":"white"},{"storage":"mce:config","nbt":"mce.security.max_schedule_jobs","color":"yellow"},{"text":" executors=","color":"white"},{"storage":"mce:config","nbt":"mce.security.max_executors","color":"yellow"}]
+tellraw @s ["",{"text":" bounds: |x/z|<=","color":"white"},{"storage":"mce:config","nbt":"mce.security.max_coord_abs","color":"yellow"},{"text":" y=","color":"white"},{"storage":"mce:config","nbt":"mce.security.min_y","color":"yellow"},{"text":"..","color":"white"},{"storage":"mce:config","nbt":"mce.security.max_y","color":"yellow"},{"text":" maxDelay=","color":"white"},{"storage":"mce:config","nbt":"mce.security.max_schedule_delay","color":"yellow"}]
+tellraw @s ["",{"text":" blockedCount: ","color":"white"},{"storage":"mce:security","nbt":"BlockedCount","color":"red"}]
+execute if data storage mce:security LastBlocked run tellraw @s ["",{"text":" lastBlocked: ","color":"white"},{"storage":"mce:security","nbt":"LastBlocked.code","color":"red"},{"text":" — ","color":"gray"},{"storage":"mce:security","nbt":"LastBlocked.reason","color":"white"}]

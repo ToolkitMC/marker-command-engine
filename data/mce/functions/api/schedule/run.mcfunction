@@ -26,4 +26,5 @@ execute if score #sched.pre mce.tick matches ..0 if data storage mce:cmd Command
 execute if score #sched.pre mce.tick matches ..0 if data storage mce:cmd Command run data modify storage mce:error Code set value "ERR_DELAY_ZERO"
 execute if score #sched.pre mce.tick matches ..0 if data storage mce:cmd Command run function mce:core/error/raise
 
-execute if data storage mce:cmd Command if data storage mce:cmd Delay if score #sched.pre mce.tick matches 1.. run function mce:core/schedule/add
+execute if data storage mce:cmd Command if data storage mce:cmd Delay if score #sched.pre mce.tick matches 1.. run function mce:core/security/check_schedule_capacity
+execute if data storage mce:cmd Command if data storage mce:cmd Delay if score #sched.pre mce.tick matches 1.. if data storage mce:security {state:{allowed:1b}} run function mce:core/schedule/add

@@ -12,4 +12,5 @@ execute unless data storage mce:batch commands run data modify storage mce:error
 execute unless data storage mce:batch commands run data modify storage mce:error Code set value "ERR_NO_BATCH"
 execute unless data storage mce:batch commands run function mce:core/error/raise
 
-execute if data storage mce:batch commands run function mce:core/batch/run
+execute if data storage mce:batch commands run function mce:core/security/check_batch_capacity
+execute if data storage mce:batch commands if data storage mce:security {state:{allowed:1b}} run function mce:core/batch/run

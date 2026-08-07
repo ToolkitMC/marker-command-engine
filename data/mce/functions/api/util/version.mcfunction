@@ -8,6 +8,6 @@
 # Usage:
 # function mce:api/util/version
 
-data modify storage mce:output Version.string set value "2.3.0"
+data modify storage mce:output Version.string set value "2.3.1-sec"
 execute store result storage mce:output Version.numeric int 1 run scoreboard players get #mce load.status
 tellraw @s ["",{"text":"[MCE] ","color":"aqua"},{"text":"Version: ","color":"white"},{"storage":"mce:output","nbt":"Version.string","color":"gold"}]

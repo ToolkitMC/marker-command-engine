@@ -12,5 +12,4 @@ execute unless data storage mce:cmd Command run data modify storage mce:error La
 execute unless data storage mce:cmd Command run data modify storage mce:error Code set value "ERR_NO_CMD"
 execute unless data storage mce:cmd Command run function mce:core/error/raise
 
-execute if data storage mce:cmd Command run function mce:core/run/setup_marker
 execute if data storage mce:cmd Command run function mce:core/run/cmd

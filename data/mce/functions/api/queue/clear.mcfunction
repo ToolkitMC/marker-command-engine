@@ -4,5 +4,5 @@
 # Clear all pending commands from the queue without executing them.
 # Usage: function mce:api/queue/clear
 
-data remove storage mce:queue commands
+data modify storage mce:queue commands set value []
 schedule clear mce:core/queue/tick

@@ -4,4 +4,4 @@
 # Clear all pending commands from the batch staging area without queuing them.
 # Usage: function mce:api/batch/clear
 
-data remove storage mce:batch commands
+data modify storage mce:batch commands set value []

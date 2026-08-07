@@ -28,8 +28,9 @@ execute if data storage mce:multi Subtitle run title @s subtitle {"storage":"mce
 execute if data storage mce:multi Actionbar run title @s actionbar {"storage":"mce:multi","nbt":"Actionbar","interpret":true}
 execute if data storage mce:multi Msg run tellraw @s {"storage":"mce:multi","nbt":"Msg","interpret":true}
 
-execute if data storage mce:multi Cmds run data modify storage mce:queue commands append from storage mce:multi Cmds[]
-execute if data storage mce:multi Cmds run function mce:api/queue/run
+execute if data storage mce:multi Cmds run function mce:core/security/check_multi_capacity
+execute if data storage mce:multi Cmds if data storage mce:security {state:{allowed:1b}} run data modify storage mce:queue commands append from storage mce:multi Cmds[]
+execute if data storage mce:multi Cmds if data storage mce:security {state:{allowed:1b}} run function mce:api/queue/run
 
 data remove storage mce:multi Title
 data remove storage mce:multi Subtitle
